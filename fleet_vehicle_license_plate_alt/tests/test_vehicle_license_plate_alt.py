@@ -14,7 +14,7 @@ class TestVehicleLicensePlatAlt(TransactionCase):
                 "color": "Black",
                 "location": "Grand-Rosiere",
                 "doors": 5,
-                "driver_id": self.env.ref("base.user_demo_res_partner").id,
+                "driver_id": self.env.ref("base.partner_demo").id,
                 "odometer_unit": "kilometers",
                 "car_value": 20000,
                 "model_id": self.env.ref("fleet.model_astra").id,
