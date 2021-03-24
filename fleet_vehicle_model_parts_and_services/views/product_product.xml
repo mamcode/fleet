@@ -9,7 +9,11 @@
         <field name="inherit_id" ref="product.product_normal_form_view" />
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
-                <page name="Fleet" string="Fleet" attrs="{'invisible': [('vehicle_part_ok', '=', False)]}">
+                <page
+                    name="Fleet"
+                    string="Fleet"
+                    attrs="{'invisible': [('vehicle_part_ok', '=', False)]}"
+                >
                     <group>
                         <group string="Vehicle Models" name="vehicle_models">
                             <field name="vehicle_model_ids" nolabel="1">
