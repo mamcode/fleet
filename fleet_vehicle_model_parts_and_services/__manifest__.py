@@ -16,6 +16,7 @@
     "depends": ["fleet", "product"],
     "data": [
         "views/product_template.xml",
+        "views/product_product.xml",
         "views/fleet_vehicle_model.xml",
     ],
 }

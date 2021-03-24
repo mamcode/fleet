@@ -10,24 +10,10 @@
         <field name="arch" type="xml">
             <div name="options" position="inside">
                 <div>
-                    <field name="fleet_ok" />
-                    <label for="fleet_ok" />
+                    <field name="vehicle_part_ok" />
+                    <label for="vehicle_part_ok" />
                 </div>
             </div>
-            <xpath expr="//notebook" position="inside">
-                <page name="Fleet" string="Fleet">
-                    <field name="part_vehicle_model_ids" attrs="{'invisible': [('type', '=', 'service')]}">
-                        <tree>
-                            <field name="name" />
-                        </tree>
-                    </field>
-                    <field name="service_vehicle_model_ids" attrs="{'invisible': [('type', '!=', 'service')]}">
-                        <tree>
-                            <field name="name" />
-                        </tree>
-                    </field>
-                </page>
-            </xpath>
         </field>
     </record>
 
