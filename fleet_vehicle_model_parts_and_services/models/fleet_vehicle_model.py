@@ -9,19 +9,18 @@ class FleetVehicleModel(models.Model):
     _inherit = "fleet.vehicle.model"
 
     part_ids = fields.Many2many(
-        "product.product",
-        "fleet_vehicle_model_parts",
+        "product.template",
+        "fleet_vehicle_model_product_part_rel",
         "model_id",
         "product_id",
         "Vehicle Parts",
         domain=["&", ("fleet_ok", "=", True), ("type", "in", ["consu", "product"])],
-        required=True,
         help="Vehicle Model Compatible Parts",
     )
 
     service_ids = fields.Many2many(
-        "product.product",
-        "fleet_vehicle_model_product_services",
+        "product.template",
+        "fleet_vehicle_model_product_service_rel",
         "model_id",
         "product_id",
         "Vehicle Services",
