@@ -1,0 +1,68 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* fleet_vehicle_additional_fuel_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-01 03:42+0000\n"
+"PO-Revision-Date: 2021-04-01 00:43-0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
+"Language: pt_BR\n"
+
+#. module: fleet_vehicle_additional_fuel_type
+#: selection:fleet.vehicle,fuel_type:0
+msgid "Diesel"
+msgstr "Diesel"
+
+#. module: fleet_vehicle_additional_fuel_type
+#: selection:fleet.vehicle,fuel_type:0
+msgid "Electric"
+msgstr "Elétrico"
+
+#. module: fleet_vehicle_additional_fuel_type
+#: selection:fleet.vehicle,fuel_type:0
+msgid "Ethanol"
+msgstr "Ethanol"
+
+#. module: fleet_vehicle_additional_fuel_type
+#: selection:fleet.vehicle,fuel_type:0
+msgid "Flex (Gasoline/Ethanol)"
+msgstr "Flex (Gasolina/Etanol)"
+
+#. module: fleet_vehicle_additional_fuel_type
+#: model:ir.model.fields,field_description:fleet_vehicle_additional_fuel_type.field_fleet_vehicle__fuel_type
+msgid "Fuel Type"
+msgstr "Tipo de Combustível"
+
+#. module: fleet_vehicle_additional_fuel_type
+#: model:ir.model.fields,help:fleet_vehicle_additional_fuel_type.field_fleet_vehicle__fuel_type
+msgid "Fuel Used by the vehicle"
+msgstr "Combustivel usado pelo veículo"
+
+#. module: fleet_vehicle_additional_fuel_type
+#: selection:fleet.vehicle,fuel_type:0
+msgid "Gasoline"
+msgstr "Gasolina"
+
+#. module: fleet_vehicle_additional_fuel_type
+#: selection:fleet.vehicle,fuel_type:0
+msgid "Hybrid"
+msgstr "Híbrido"
+
+#. module: fleet_vehicle_additional_fuel_type
+#: selection:fleet.vehicle,fuel_type:0
+msgid "LPG"
+msgstr "GPL"
+
+#. module: fleet_vehicle_additional_fuel_type
+#: model:ir.model,name:fleet_vehicle_additional_fuel_type.model_fleet_vehicle
+msgid "Vehicle"
+msgstr "Veículo"
