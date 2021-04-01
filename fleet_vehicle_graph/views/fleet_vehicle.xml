@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 - TODAY, Marcel Savegnago
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="fleet_vehicle__graph_view">
+		<field name="name">fleet.vehicle.graph (in base_fleet)</field>
+		<field name="model">fleet.vehicle</field>
+		<field name="arch" type="xml">
+			<graph string="Vehicles">
+				<field name="state_id" type="row"/>
+			</graph>
+		</field>
+	</record>
+
+    <record id="fleet.fleet_vehicle_action" model="ir.actions.act_window">
+        <field name="view_mode">kanban,tree,graph,pivot,activity,form</field>
+    </record>
+
+</odoo>
