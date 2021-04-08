@@ -1,0 +1,1 @@
+This module extends the fleet vehicle inspection management functionality. It allows you to prepare a list of products and services needed to repair each item that failed during the vehicle inspection.

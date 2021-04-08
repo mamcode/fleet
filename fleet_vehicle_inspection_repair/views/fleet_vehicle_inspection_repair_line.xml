@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="fleet_vehicle_inspection_repair_line_form_view">
+        <field name="name">fleet.vehicle.inspection.repair.line.form (in fleet_vehicle_inspection_repair)</field>
+        <field name="model">fleet.vehicle.inspection.repair.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- TODO -->
+                </header>
+                <sheet>
+                    <!-- TODO -->
+                    <group>
+                        <field name="inspection_id" invisible="1"/>
+                        <field name="inspection_line_id" invisible="1"/>
+                        <field name="product_id_domain" invisible="1"/>
+                        <field name="pricelist_id" invisible="1"/>
+                        <field name="product_id" domain="product_id_domain"/>
+                        <field name="type"/>
+                        <field name="categ_id"/>
+                        <field name="product_uom_qty"/>
+                        <field name="product_uom"/>
+                        <field name="price_unit"/>
+                        <field name="price_subtotal"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter"></div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="fleet_vehicle_inspection_repair_line_search_view">
+        <field name="name">fleet.vehicle.inspection.repair.line.search (in fleet_vehicle_inspection_repair)</field>
+        <field name="model">fleet.vehicle.inspection.repair.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <!-- TODO -->
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="fleet_vehicle_inspection_repair_line_tree_view">
+        <field name="name">fleet.vehicle.inspection.repair.line.tree (in fleet_vehicle_inspection_repair)</field>
+        <field name="model">fleet.vehicle.inspection.repair.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="inspection_id" invisible="1"/>
+                <field name="inspection_line_id" invisible="1"/>
+                <field name="product_id_domain" invisible="1"/>
+                <field name="product_id" domain="product_id_domain"/>
+                <field name="type"/>
+                <field name="categ_id"/>
+                <field name="product_uom_qty"/>
+                <field name="product_uom"/>
+                <field name="price_unit"/>
+                <field name="price_subtotal"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
