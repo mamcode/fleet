@@ -11,7 +11,7 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page name="products" string="Compatible Products">
-                    <field name="product_ids">
+                    <field name="compatible_product_ids">
                         <tree>
                             <field name="categ_id" />
                             <field name="name" />

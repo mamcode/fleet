@@ -8,7 +8,7 @@ class FleetVehicleInspectionItem(models.Model):
 
     _inherit = 'fleet.vehicle.inspection.item'
 
-    product_ids = fields.Many2many(
+    compatible_product_ids = fields.Many2many(
         "product.product",
         "fleet_vehicle_inspection_item_compatible_product_rel",
         "vehicle_inspection_item_id",
