@@ -53,12 +53,6 @@ class FleetVehicleInspectionRepairLine(models.Model):
         'Quantity', default=1.0,
         digits=dp.get_precision('Product Unit of Measure'), required=True)
 
-    partner_id = fields.Many2one(
-        'res.partner', 'Customer',
-        index=True,
-        help='Choose partner for whom the order will be invoiced and delivered. '
-             'You can find a partner by its Name, TIN, Email or Internal Reference.')
-
     pricelist_id = fields.Many2one(
         'product.pricelist', 'Pricelist',
         default=lambda self: self.env['product.pricelist'].search([], limit=1).id,
@@ -76,14 +70,14 @@ class FleetVehicleInspectionRepairLine(models.Model):
         'account.tax', 'repair_operation_line_tax', 'repair_operation_line_id', 'tax_id', 'Taxes')
 
     @api.one
-    @api.depends('price_unit', 'partner_id', 'product_uom_qty', 'product_id', )
+    @api.depends('price_unit', 'product_uom_qty', 'product_id', )
     def _compute_price_subtotal(self):
         taxes = self.tax_id.compute_all(
             self.price_unit,
             self.pricelist_id.currency_id,
             self.product_uom_qty,
             self.product_id,
-            self.partner_id)
+            self.inspection_id.driver_id)
         self.price_subtotal = taxes['total_excluded']
 
     @api.multi
@@ -96,8 +90,10 @@ class FleetVehicleInspectionRepairLine(models.Model):
                 rec.inspection_line_id.inspection_item_id.compatible_product_ids
             product_ids = \
                 model_compatible_product_ids & inspection_line_compatible_product_ids
-            rec.product_id_domain = json.dumps(
-                [('is_fleet_vehicle_product', '=', True), ('id', 'in', product_ids.ids)])
+            rec.product_id_domain = json.dumps([
+                ('is_fleet_vehicle_product', '=', True),
+                ('id', 'in', product_ids.ids)
+            ])
 
     @api.onchange('inspection_id', 'inspection_line_id', 'product_id')
     def _onchange_inspection_or_inspection_line(self):
@@ -105,17 +101,24 @@ class FleetVehicleInspectionRepairLine(models.Model):
 
     @api.onchange('product_id')
     def _onchange_product_id(self):
-        partner = self.partner_id
+        partner = self.inspection_id.driver_id
         pricelist = self.pricelist_id
+        # pricelist = partner.property_product_pricelist or False
         if pricelist and self.product_id:
-            price = pricelist.get_product_price(self.product_id, self.product_uom_qty, partner,
-                                                uom_id=self.product_uom.id)
+            price = pricelist.get_product_price(
+                self.product_id,
+                self.product_uom_qty,
+                partner,
+                uom_id=self.product_uom.id
+            )
             if price is False:
                 warning = {
                     'title': _('No valid pricelist line found.'),
                     'message':
                         _(
-                            "Couldn't find a pricelist line matching this product and quantity.\nYou have to change either the product, the quantity or the pricelist.")}
+                            "Couldn't find a pricelist line matching this product"
+                            "and quantity. You have to change either the product,"
+                            "the quantity or the pricelist.")}
                 return {'warning': warning}
             else:
                 self.price_unit = price
