@@ -55,7 +55,8 @@ class FleetVehicleLogServices(models.Model):
             fields.Datetime.context_timestamp(self, meet_date)
         )
         html_time = "<time datetime='{}+00:00'>{}</time>".format(
-            meeting_date, meeting_usertime,
+            meeting_date,
+            meeting_usertime,
         )
         message = _(
             "Meeting scheduled at '%s'<br> Subject: %s <br> Duration: %s hours"
